@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Learn CSHTML</title>
+</head>
+<body>
+    <center>
+        @RenderPage("header.cshtml")
+        <h1>Hello world</h1>
+        <p>The time is @DateTime.Now</p>
+        <hr style="border:solid;color:red;width:50%" />
+        <!-- Single statement block -->
+        @{ var myMessage = "Hello world"; }
+        <!-- Inline expression or variable -->
+        <p> The value of myMessage is: @myMessage</p>
+        <!-- Multi-statement block -->
+        @{
+            var greeting = "Welcome to our site!";
+            var weekDay = DateTime.Now.DayOfWeek;
+            var greetingMessage = greeting + " Here in Huston it is:" + weekDay;
+        }
+        <p>The greeting is: @greetingMessage</p>
+        <hr style="border:solid;color:skyblue;width:50%" />
+        @RenderPage("footer.cshtml")
+    </center>
+</body>
+</html>
