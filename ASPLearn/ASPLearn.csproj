@@ -85,6 +85,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\1.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\3.jpg" />
+    <Content Include="images\4.jpg" />
     <Content Include="Views\HtmlPage1.html" />
     <Content Include="Views\one.aspx" />
     <Content Include="Web.config" />

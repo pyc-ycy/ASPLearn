@@ -20,7 +20,51 @@
             var greetingMessage = greeting + " Here in Huston it is:" + weekDay;
         }
         <p>The greeting is: @greetingMessage</p>
+        <hr style="border:solid;color:cornflowerblue;width:50%" />
+        @{
+            if (IsPost)
+            {
+                string companyname = Request["CompanyName"];
+                string contactname = Request["ContactName"];
+                <p>
+                    Your Entered:<br />
+                    Company Name: @companyname<br />
+                    Contact Name: @contactname
+                </p>
+            }
+            else
+            {
+                <form method="post" action="">
+                    Company Name:<input type="text" name="CompanyName" value="" /><br />
+                    Contact Name:<input type="text" name="ContactName" value="" /><br /><br />
+                    <input type="submit" value="Submit" class="submit" />
+                </form>
+            }
+        }
         <hr style="border:solid;color:skyblue;width:50%" />
+        @{
+            var imagePath = "";
+            if (Request["Choice"] != null)
+            {
+                imagePath = "../images/" + Request["Choice"];
+            }
+        }
+        <form method="post" action="">
+            I want to see:
+            <select name="Choice">
+                <option value="1.jpg">Photo 1</option>
+                <option value="2.jpg">Photo 2</option>
+                <option value="3.jpg">Photo 3</option>
+                <option value="4.jpg">Photo 4</option>
+            </select>
+            <input type="submit" value="Submit" />
+            @if (imagePath != "")
+            {
+                <p>
+                    <img src="@imagePath" alt="Sample" />
+                </p>
+            }
+        </form>
         @RenderPage("footer.cshtml")
     </center>
 </body>
